@@ -3,7 +3,10 @@ venv/
 .env
 =======
 .env
+*.env
 venv/
 >>>>>>> 628cf7c6ebf682de6719a6eeeb205acbe380e39d
 __pycache__/
-*.pyc
+node_modules/
+dist/
+build/
