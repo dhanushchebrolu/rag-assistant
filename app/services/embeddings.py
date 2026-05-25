@@ -23,7 +23,7 @@ def _get_local_model():
     if _local_model is None:
         from sentence_transformers import SentenceTransformer
         logger.info("Loading sentence-transformers model (first time — may take a moment)…")
-        _local_model = SentenceTransformer("all-MiniLM-L6-v2")
+        _local_model = SentenceTransformer("all-MiniLM-L6-v2", device="cpu")
         logger.info("Model loaded.")
     return _local_model
 
