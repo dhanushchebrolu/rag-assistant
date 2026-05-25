@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: rag-assistant
+    runtime: python
+    pythonVersion: "3.11"
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: LLM_PROVIDER
+        value: groq
+      - key: GROQ_API_KEY
+        value: gsk_...your key...
+      - key: EMBEDDING_BACKEND
+        value: local
+      - key: DOCS_PATH
+        value: docs.json

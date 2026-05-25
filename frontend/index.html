@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Assistant — Knowledge Base Chat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+
+  <div class="layout">
+
+    <!-- ── sidebar ── -->
+    <aside class="sidebar">
+      <div class="sidebar-top">
+        <div class="brand">
+          <span class="brand-icon">◆</span>
+          <span class="brand-name">Assist</span>
+        </div>
+        <p class="sidebar-tagline">Knowledge-grounded answers, always.</p>
+      </div>
+
+      <div class="sidebar-actions">
+        <button class="btn-new" id="newChatBtn" title="Start a new conversation">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+          New chat
+        </button>
+      </div>
+
+      <div class="sidebar-info">
+        <p class="info-label">Knowledge base</p>
+        <ul class="topics">
+          <li>Getting started</li>
+          <li>Password reset</li>
+          <li>Billing &amp; plans</li>
+          <li>Two-factor auth</li>
+          <li>File uploads</li>
+          <li>Team &amp; collaboration</li>
+          <li>API &amp; developer tools</li>
+          <li>Data export</li>
+          <li>Account deletion</li>
+          <li>Customer support</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-footer">
+        <span id="statusDot" class="status-dot healthy"></span>
+        <span id="statusText" class="status-text">Checking…</span>
+      </div>
+    </aside>
+
+    <!-- ── main chat area ── -->
+    <main class="chat-area">
+
+      <div class="chat-header">
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle sidebar">
+          <span></span><span></span><span></span>
+        </button>
+        <span class="chat-header-title">Chat</span>
+        <span class="session-badge" id="sessionBadge">session —</span>
+      </div>
+
+      <div class="messages" id="messages">
+        <!-- welcome state -->
+        <div class="welcome" id="welcome">
+          <div class="welcome-icon">◆</div>
+          <h2>How can I help?</h2>
+          <p>Ask me anything about our platform. I'll answer using the documentation — no guessing.</p>
+          <div class="suggestion-row">
+            <button class="suggestion" data-q="How do I reset my password?">How do I reset my password?</button>
+            <button class="suggestion" data-q="What plans do you offer?">What plans do you offer?</button>
+            <button class="suggestion" data-q="How do I enable two-factor authentication?">How do I enable two-factor authentication?</button>
+            <button class="suggestion" data-q="How do I export my data?">How do I export my data?</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="input-area">
+        <div class="input-wrap">
+          <textarea
+            id="msgInput"
+            rows="1"
+            placeholder="Ask something…"
+            autocomplete="off"
+            spellcheck="true"
+          ></textarea>
+          <button class="send-btn" id="sendBtn" disabled>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M16 9H2M16 9L10 3M16 9L10 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+        <p class="input-hint">Answers are grounded in the knowledge base.</p>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
